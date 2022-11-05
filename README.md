@@ -17,8 +17,19 @@ Developed by Eduardo Savian De Oliveira, Marcos Augusto Fehlauer Pereira, Yuri R
 - Implement documentation via Swagger.
 
 ## Installation and Usage
+1. Clone repository:
 
-1. Set up the virtual env:
+* HTTPS
+```
+git clone https://github.com/EduardoSaviandeOliveira/Flavor-and-Cuisine.git
+```
+
+* SSH
+```
+git clone git@github.com:EduardoSaviandeOliveira/Flavor-and-Cuisine.git
+```
+
+2. Set up the virtual env:
 
 * Windows
 ```
@@ -30,14 +41,14 @@ python -m venv flavor-and-cuisine-env and flavor-and-cuisine-env\Scripts\activat
 python3 -m venv flavor-and-cuisine-env && source flavor-and-cuisine-env/bin/activate
 ```
 
-2. Install the dependencies with pip: 
+3. Install the dependencies with pip: 
 ```
 pip install fastapi sqlalchemy pydantic uvicorn PyJWT python-decouple
 ```
 
-3. Run the application:
+4. Run the application:
 ```
-cd application ; uvicorn app:app
+cd application ; uvicorn app:app --reload
 ```
 
 ## Documentation
