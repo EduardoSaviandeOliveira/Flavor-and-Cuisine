@@ -10,17 +10,25 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: import("../views/LoginView.vue"),
+    component: import(
+      /* webpackChunkName: "LoginView" */ "../views/LoginView.vue"
+    ),
   },
   {
     path: "/user",
     name: "user",
-    component: () => import("../views/UserView.vue"),
+    component: () =>
+      import(/* webpackChunkName: "UserView" */ "../views/UserView.vue"),
   },
   {
     path: "/recipe",
     name: "recipe",
-    component: () => import("../views/RecipeView.vue"),
+    component: () =>
+      import(/* webpackChunkName: "RecipeView" */ "../views/RecipeView.vue"),
+  },
+  {
+    path: "user/:id",
+    component: () => import(/* webpackChunkName: "UserView" */"../views/UserView.vue"),
   },
 ];
 

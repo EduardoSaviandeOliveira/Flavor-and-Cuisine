@@ -9,20 +9,21 @@
     :style="getStyles"
     :disabled="disabled"
     :native-type="nativeType"
-    v-on="$listeners">
+    v-on="$listeners"
+  >
     <slot />
   </el-button>
 </template>
 
 <script>
-import { xs, sm, md, lg, base } from '@/components/components.constants';
-import { validator, themeValidator } from '@/components/components.validators';
+import { xs, sm, md, lg, base } from "@/components/components.constants";
+import { validator, themeValidator } from "@/components/components.validators";
 
 const SIZES = [xs, sm, md, lg];
-const NATIVE_TYPES = ['button', 'submit', 'reset'];
+const NATIVE_TYPES = ["button", "submit", "reset"];
 
 export default {
-  name: 'BibliotecaButton',
+  name: "BibliotecaButton",
   inheritAttrs: false,
   props: {
     plain: {
@@ -37,12 +38,12 @@ export default {
     size: {
       type: String,
       default: md,
-      validator: size => validator(size, ...SIZES),
+      validator: (size) => validator(size, ...SIZES),
     },
     nativeType: {
       type: String,
       default: NATIVE_TYPES[0],
-      validator: type => validator(type, ...NATIVE_TYPES),
+      validator: (type) => validator(type, ...NATIVE_TYPES),
     },
     width: String,
     icon: String,
@@ -50,7 +51,7 @@ export default {
   },
   computed: {
     getIcon() {
-      return this.icon ? `bi-${this.icon}` : '';
+      return this.icon ? `bi-${this.icon}` : "";
     },
     hasIcon() {
       return !!this.icon;
@@ -62,9 +63,11 @@ export default {
       return [`el-button--${this.size}`];
     },
     getStyles() {
-      return [{
-        width: this.width ? `${this.width}px` : '',
-      }];
+      return [
+        {
+          width: this.width ? `${this.width}px` : "",
+        },
+      ];
     },
   },
 };
