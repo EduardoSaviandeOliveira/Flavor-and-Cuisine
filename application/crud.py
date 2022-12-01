@@ -18,7 +18,7 @@ def check_user(db: Session, user: schemas.UserLoginSchema):
 def create_user(db: Session, user: schemas.UserCreate):
     db_user = get_user_by_email(db, user.email)
     if db_user is not None:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=406, detail="User already exists")
     db_user = models.User(**user.dict())
     db.add(db_user)
     db.commit()
