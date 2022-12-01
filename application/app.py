@@ -78,7 +78,7 @@ def get_user_by_id(user_id: int, db: Session = Depends(get_db)):
 
 
 # Get all
-@app.get("/user/id/", response_model=schemas.PaginatedUser, dependencies=[Depends(JWTBearer())])
+@app.get("/user/id/", response_model=schemas.PaginatedUser)
 def get_all_users(db: Session = Depends(get_db), offset: int = 0, limit: int = 10):
     db_users = crud.get_all_users(db, offset, limit)
     response = {"limit": limit, "offset": offset, "data": db_users}
