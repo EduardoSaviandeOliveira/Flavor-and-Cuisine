@@ -8,22 +8,22 @@ import { FLAVOR_CUISINE_URL, postData } from "../stores";
 }
 */
 
-let signInData = {}
+let signUpData = {}
 function onSubmit(e){
   const formData = new FormData(e.target)
   
   for (let field of formData) {
     const [key, value] = field;
-    signInData[key] = value;
+    signUpData[key] = value;
   }
-  console.log(signInData)
+  console.log(signUpData)
 }
 
 </script>
 
 <main>
 
-<div>
+<div class="signup-form">
 <form on:submit|preventDefault={onSubmit}>
   <label for="name">Username</label>
   <input type="text"
@@ -43,8 +43,13 @@ function onSubmit(e){
     name="password"
     value=""
   />
-  <button type="submit" on:click={() => postData(`${FLAVOR_CUISINE_URL}/signup/`, signInData)}>Create Account</button>
+  <button type="submit" on:click={() => postData(`${FLAVOR_CUISINE_URL}/signup/`, signUpData)}>Create Account</button>
 </form>
+
 </div>
 
 </main>
+
+<style>
+
+</style>
