@@ -145,7 +145,7 @@ def get_recipe_by_id(recipe_id: int, db: Session = Depends(get_db)):
 
 
 # Get all
-@app.get("/recipe/id/", dependencies=[Depends(JWTBearer())], response_model=schemas.PaginatedRecipe)
+@app.get("/recipe/id/", response_model=schemas.PaginatedRecipe)
 def get_all_recipes(db: Session = Depends(get_db), offset: int = 0, limit: int = 10):
     db_recipes = crud.get_all_recipes(db, offset, limit)
     response = {"limit": limit, "offset": offset, "data": db_recipes}
