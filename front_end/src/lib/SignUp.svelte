@@ -22,7 +22,7 @@ function onSubmit(e){
 </script>
 
 <main>
-
+<h1>Sign Up</h1>
 <div class="signup-form">
 <form on:submit|preventDefault={onSubmit}>
   <label for="name">Username</label>
@@ -51,5 +51,11 @@ function onSubmit(e){
 </main>
 
 <style>
+
+.signup-form {
+  display:grid;
+  grid-template-columns: 1fr;
+  width: 0.5rem;
+}
 
 </style>
