@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const FLAVOR_CUISINE_URL = 'http://localhost:8000';
+export let authToken;
 
 export async function postData(url = '', data = {}) {
   // Default options are marked with *
@@ -15,5 +16,21 @@ export async function postData(url = '', data = {}) {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(data) // body data type must match "Content-Type" header
   });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+export async function getData(url = '', opts) {
+  let response = await fetch(url, {
+    method: 'GET',
+    mode: 'cors',
+    credentials: 'same-origin',
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+  });
+
+  for (const field of opts) {
+    const [key, val] = field
+    response[key] = val
+  }
   return response.json(); // parses JSON response into native JavaScript objects
 }

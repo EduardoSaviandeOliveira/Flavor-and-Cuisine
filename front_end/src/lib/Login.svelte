@@ -15,15 +15,9 @@ function onSubmit(e){
 </script>
 
 <main>
-<h1>Sign Up</h1>
-<div class="signup-form">
+<h1>Log in</h1>
+<div class="login-form">
 <form on:submit|preventDefault={onSubmit}>
-  <label for="name">Username</label>
-  <input type="text"
-    id="name"
-    name="name"
-    value=""
-  />
   <label for="name">Email</label>
   <input type="text"
     id="email"
@@ -36,7 +30,7 @@ function onSubmit(e){
     name="password"
     value=""
   />
-  <button type="submit" on:click={() => postData(`${FLAVOR_CUISINE_URL}/signup/`, signUpData)}>Create Account</button>
+  <button type="submit" on:click={() => postData(`${FLAVOR_CUISINE_URL}/signup/`, signUpData)}>Log In</button>
 </form>
 
 </div>
@@ -45,7 +39,7 @@ function onSubmit(e){
 
 <style>
 
-.signup-form {
+.login-form {
   display:grid;
   grid-template-columns: 1fr;
   width: 0.5rem;
