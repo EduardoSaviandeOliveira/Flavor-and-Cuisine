@@ -15,8 +15,13 @@ export async function postData(url = '', data = {}) {
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
+  })
+  let result = await response.json().then(data => ({
+    data:data,
+    status:response.status,
+  })); // parses JSON response into native JavaScript objects
+  
+  return result
 }
 
 export async function getData(url = '', opts) {

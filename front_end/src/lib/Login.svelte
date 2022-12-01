@@ -2,6 +2,7 @@
 import { FLAVOR_CUISINE_URL, postData } from "../stores";
 
 let signUpData = {}
+let token;
 function onSubmit(e){
   const formData = new FormData(e.target)
   
@@ -30,7 +31,11 @@ function onSubmit(e){
     name="password"
     value=""
   />
-  <button type="submit" on:click={() => postData(`${FLAVOR_CUISINE_URL}/signup/`, signUpData)}>Log In</button>
+  <button type="submit" on:click={async () => {
+      token = (await postData(`${FLAVOR_CUISINE_URL}/login/`, signUpData)).data.access_token
+      console.log(token)
+    }
+    }>Log In</button>
 </form>
 
 </div>
