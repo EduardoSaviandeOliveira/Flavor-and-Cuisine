@@ -19,12 +19,16 @@ onMount(getAllRecs)
 {#each recipe as rec}
 <div class='recipe'>
   <h1 class='recipe-header'> {rec.title} </h1>
+    <h3>Ingredients</h3>
   <div class='recipe-ingredients'>
     {#each rec.contents.split('\n') as ingredient}
     <li>{ingredient}</li>
     {/each}
   </div>
-  <div class='recipe-desc'> {rec.contents} </div>
+  <div class='recipe-desc'>
+    <h3>Directions</h3>
+    {rec.contents}
+  </div>
 </div>
 {/each}
 {/each}
@@ -40,15 +44,19 @@ onMount(getAllRecs)
   width: 90%;
   min-width: 400px;
 }
+
 .recipe-header {
   text-align: center;
+  font-family: 'Roboto Slab', serif;
 }
 
 .recipe-desc {
-  font-family: serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 .recipe-ingredients {
-  margin-left: 1em;
+  margin-left: 2em;
+  margin-bottom: 1em;
+  font-family: 'Roboto Slab', serif;
 }
 </style>
