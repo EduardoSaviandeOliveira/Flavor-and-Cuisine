@@ -51,6 +51,16 @@ pip install fastapi sqlalchemy pydantic uvicorn PyJWT python-decouple
 cd application ; uvicorn app:app --reload
 ```
 
+5. Install front-end with npm:
+```
+cd front-end ; npm install 
+```
+
+6. Run in other Terminal
+```
+npm run dev
+```
+
 ## Documentation
 
 - Use http://127.0.0.1:8000/docs to see the Swagger documentation
