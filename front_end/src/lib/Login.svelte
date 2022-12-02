@@ -1,8 +1,7 @@
 <script>
-import { FLAVOR_CUISINE_URL, postData } from "../stores";
+import { FLAVOR_CUISINE_URL, postData, authToken} from "../stores";
 
 let signUpData = {}
-let token;
 function onSubmit(e){
   const formData = new FormData(e.target)
   
@@ -32,8 +31,9 @@ function onSubmit(e){
     value=""
   />
   <button type="submit" on:click={async () => {
-      token = (await postData(`${FLAVOR_CUISINE_URL}/login/`, signUpData)).data.access_token
-      console.log(token)
+      let token = (await postData(`${FLAVOR_CUISINE_URL}/login/`, signUpData)).data.access_token
+      authToken.set(token)
+      console.log(authToken)
     }
     }>Log In</button>
 </form>

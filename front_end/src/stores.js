@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const FLAVOR_CUISINE_URL = 'http://localhost:8000';
-export let authToken;
+export let authToken = writable(0);
 
 export async function postData(url = '', data = {}) {
   // Default options are marked with *
