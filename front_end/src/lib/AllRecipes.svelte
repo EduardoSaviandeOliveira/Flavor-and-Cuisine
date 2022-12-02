@@ -19,6 +19,7 @@ onMount(getAllRecs)
 {#each recipe as rec}
 <div class='recipe'>
   <h1 class='recipe-header'> {rec.title} </h1>
+  <p class='recipe-author'>(By user:{rec.user_id})</p>
     <h3>Ingredients</h3>
   <div class='recipe-ingredients'>
     {#each rec.contents.split('\n') as ingredient}
@@ -47,7 +48,17 @@ onMount(getAllRecs)
 
 .recipe-header {
   text-align: center;
+  text-decoration: underline;
   font-family: 'Roboto Slab', serif;
+  margin-bottom: 0.5%;
+}
+
+.recipe-author{
+  margin-top: 0;
+  text-align: center;
+  font-size: 0.8em;
+  color:rgb(44, 44, 44);
+
 }
 
 .recipe-desc {
