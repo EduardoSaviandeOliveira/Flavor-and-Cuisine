@@ -51,6 +51,7 @@ onMount(getAllRecs)
   text-decoration: underline;
   font-family: 'Roboto Slab', serif;
   margin-bottom: 0.5%;
+  color:rgb(34, 13, 13);
 }
 
 .recipe-author{
