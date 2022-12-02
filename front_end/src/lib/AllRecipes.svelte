@@ -19,8 +19,12 @@ onMount(getAllRecs)
 {#each recipe as rec}
 <div class='recipe'>
   <h1 class='recipe-header'> {rec.title} </h1>
-  <div class='recipe-ingredients'> {rec.contents} </div>
-  <div class='recipe-desc'> {rec.description} </div>
+  <div class='recipe-ingredients'>
+    {#each rec.contents.split('\n') as ingredient}
+    <li>{ingredient}</li>
+    {/each}
+  </div>
+  <div class='recipe-desc'> {rec.contents} </div>
 </div>
 {/each}
 {/each}
@@ -45,7 +49,6 @@ onMount(getAllRecs)
 }
 
 .recipe-ingredients {
-  width: 0.8em;
   margin-left: 1em;
 }
 </style>
