@@ -2,17 +2,7 @@
 Developed by Eduardo Savian De Oliveira, Marcos Augusto Fehlauer Pereira, Yuri Rodrigues
 
 ## Objective:
-- Create the Flavor and Kitchen app backend;
-
-- Must contain API endpoints of at least 3 CRUDs;
-
-- It must have data persistence (relational or non-relational);
-
-- Use any WEB programming language;
-
-- Implement JWT in protected API requests;
-
-- Export JSON from “Postman” or “Thunder Client” with all requests to validate the endpoints created;
+- Create the Flavor and Kitchen app;
 
 - Implement documentation via Swagger.
 
@@ -41,9 +31,9 @@ python -m venv flavor-and-cuisine-env and flavor-and-cuisine-env\Scripts\activat
 python3 -m venv flavor-and-cuisine-env && source flavor-and-cuisine-env/bin/activate
 ```
 
-3. Install the dependencies with pip: 
+3. Install the dependencies with pip:
 ```
-pip install fastapi sqlalchemy pydantic uvicorn PyJWT python-decouple
+pip install flask waitress
 ```
 
 4. Run the application:
@@ -53,7 +43,7 @@ cd application ; uvicorn app:app --reload
 
 5. Install front-end with npm:
 ```
-cd front-end ; npm install 
+cd front-end ; npm install
 ```
 
 6. Run in other Terminal
@@ -67,9 +57,11 @@ npm run dev
 
 Useful links:
 
-- FastApi: https://fastapi.tiangolo.com/
+-  Flask: https://palletsprojects.com/p/flask/
 
-- SQLAlchemy: https://www.sqlalchemy.org/
+- Waitress: https://flask.palletsprojects.com/en/2.2.x/deploying/waitress/
+
+- React: https://reactjs.org/
 
 ## Why is `.env` here?
 
